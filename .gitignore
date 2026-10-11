@@ -2,12 +2,14 @@
 HANDOFF.md
 *.private.md
 
-# Local Claude Code settings
-.claude/settings.local.json
+# Claude Code project config (settings, local settings, runtime files). This
+# repo shares none of it; the mod's own manifest is .claude-plugin/, kept.
+**/.claude/
 
 # Environment and secrets
 .env
 .env.*
+!.env.example
 *.pem
 *.key
 
