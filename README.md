@@ -2,7 +2,7 @@
 
 A Claude Code mod that keeps a live breakdown of the context window directly above the prompt: how many tokens each category takes (system prompt, tools, MCP tools, agents, memory files, skills, messages), how much is free, and where auto-compaction starts.
 
-> **Status: pre-alpha, under construction.** There is no release yet. Don't install it until a tagged release exists.
+> **Status: pre-release (0.1.0).** It works and is tested, but the look and the details may still change before 1.0.
 
 ```
 ╭──────────────────────────────────────────────────────────────╮
@@ -29,11 +29,23 @@ The full visual spec is in [docs/SPEC.md](docs/SPEC.md).
 
 ## Requirements
 
-Claude Code 2.1.287 or later, with mods enabled. Mods are on by default.
+Claude Code 2.1.296 or later, with mods enabled (they are on by default). That is the version it is built and tested on; earlier builds with mods may work but are untested.
 
 ## Install
 
-Not yet published. Install steps will appear here with the first tagged release.
+At the prompt of a Claude Code terminal session:
+
+```
+/plugin install context-bar --marketplace barneym/claude-context-bar
+```
+
+Answer `y` to add the marketplace, then pick a scope (user is the default). The bar appears above the prompt after Claude's first reply in a session.
+
+To try it without installing, clone the repository and start a session with the mod loaded for that session only:
+
+```
+claude --plugin-dir ./context-bar
+```
 
 ## What it can reach
 
@@ -51,7 +63,9 @@ Checked against `claude plugin validate`, which reads these lists off the source
 
 ## Commands
 
-- `/context-bar` shows or hides the bar.
+- `/context-bar` shows or hides the bar. The choice is remembered across sessions.
+
+With auto-compaction turned off there is no compaction tick and no "compacts at" figure, because the engine reports no threshold.
 
 ## Credits
 
