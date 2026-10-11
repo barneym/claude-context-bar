@@ -1,0 +1,26 @@
+# Private working notes (local paths, personal references). Never commit.
+HANDOFF.md
+*.private.md
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+
+# OS and editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Private-info guard patterns (personal identifiers). Never commit.
+.private-patterns

@@ -1,0 +1,12 @@
+{
+  "name": "context-bar",
+  "version": "0.0.0",
+  "description": "A live breakdown of the context window, right above the prompt.",
+  "author": {
+    "name": "Barney Mattox",
+    "url": "https://github.com/barneym"
+  },
+  "homepage": "https://github.com/barneym/claude-context-bar",
+  "repository": "https://github.com/barneym/claude-context-bar",
+  "license": "MIT"
+}

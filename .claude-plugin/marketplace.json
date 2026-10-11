@@ -1,0 +1,18 @@
+{
+  "name": "claude-context-bar",
+  "owner": {
+    "name": "Barney Mattox",
+    "url": "https://github.com/barneym"
+  },
+  "metadata": {
+    "description": "A Claude Code mod: live context-window breakdown above the prompt."
+  },
+  "plugins": [
+    {
+      "name": "context-bar",
+      "source": "./context-bar",
+      "description": "A live breakdown of the context window, right above the prompt. Reads session usage only; no network, files, processes or model calls.",
+      "category": "mod"
+    }
+  ]
+}
