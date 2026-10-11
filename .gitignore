@@ -6,10 +6,10 @@ HANDOFF.md
 # repo shares none of it; the mod's own manifest is .claude-plugin/, kept.
 **/.claude/
 
-# Environment and secrets
+# Environment and secrets. An env template is named env.example (no leading
+# dot, so it stays visible); these rules never match it.
 .env
 .env.*
-!.env.example
 *.pem
 *.key
 
