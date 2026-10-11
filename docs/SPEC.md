@@ -62,11 +62,13 @@ The demo shows only green, at 9 to 11%. **(decision)** Green below 70%, yellow f
 - **Color:** never the only signal, because every legend entry has a text name and number.
 - **`NO_COLOR`:** when it's set, use an uncolored bar with text-only segments.
 
-## Data sources (to verify against the installed Claude Code's generated types)
+## Data sources (verified against Claude Code 2.1.296's generated types)
 
-- `$.session.usage()` gives `context.tokens` and `context.window`. The demo's code shows this call.
-- `$.session.usage({ breakdown: 'summary' })` gives the per-category names, tokens and possibly colors. It's used by existing community mods but not shown in the demo, so it is **unverified**.
-- **Auto-compact threshold:** source unknown; check whether the engine exposes it. The demo's 987k on 1M implies a buffer of about 13k.
+- `$.session.usage()` gives `context.tokens` and `context.window`; `tokens` is absent until the live window's first response, which is when the bar hides.
+- `$.session.usage({ breakdown: 'summary' })` adds `context.breakdown`, estimated locally with no requests sent. Each row has a `name`, `tokens`, a theme `color` key and a `kind` (`used`, `free`, `buffer` or `deferred`); the legend shows the `used` rows. It measures against `rawMaxTokens`, which is the compaction window when one is set, so the header, bar and legend all use the breakdown's figures.
+- **Auto-compact threshold:** `breakdown.autoCompactThreshold`, present while `isAutoCompactEnabled`. With auto-compaction off there is no tick and no "compacts at".
+- **Refresh:** `session.measure` (after each main-thread turn, with `changed` naming `context`) and after a compaction that stands.
+- **`NO_COLOR`:** read once per session with `$.env.get('NO_COLOR')`.
 
 ## Not in scope for v0.1
 

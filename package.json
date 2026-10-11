@@ -1,0 +1,8 @@
+{
+  "name": "claude-context-bar",
+  "private": true,
+  "scripts": {
+    "test": "bun test ./context-bar/tests/format.spec.ts && claude plugin test ./context-bar",
+    "validate": "claude plugin validate ./context-bar"
+  }
+}

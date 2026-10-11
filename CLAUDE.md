@@ -12,6 +12,7 @@ This is a public open-source Claude Code mod. The target is [docs/SPEC.md](docs/
    - the commands it registers
    - state via `atom`/`read`/`update`
    - `$.store`, only for the shown/hidden flag
+   - `$.env.get('NO_COLOR')`, only that one variable (approved 2026-10-10 for the text-only bar)
 
    No network, no file reads or writes, no processes, no `$.model.*`, and no parsing of prompt, tool or file text. If a feature needs more than this, stop and ask the maintainer.
 
@@ -23,5 +24,6 @@ This is a public open-source Claude Code mod. The target is [docs/SPEC.md](docs/
 
 4. **Tests.** Every behavior in the spec gets a test.
    - Rendering logic: the number formatting, segment math and threshold colors must be pure functions, with unit tests.
+   - `bun run test` runs both suites: `tests/format.spec.ts` under bun, and `*.test.tsx` under `claude plugin test` (the engine's kit). The kit loads every `*.test.ts(x)` and refuses imports other than relative files and `claude-code`, so bun specs are named `*.spec.ts`.
 
 5. **The README's "What it can reach" section must match the code.** Update it in the same commit as any change to the APIs used.

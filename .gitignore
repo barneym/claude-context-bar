@@ -24,3 +24,11 @@ coverage/
 
 # Private-info guard patterns (personal identifiers). Never commit.
 .private-patterns
+
+# Session notes and logs written by local Claude Code plugins. Never commit.
+.remember/
+logs/
+
+# Types the engine lays beside a loaded mod: they list this machine's
+# connected MCP tools. Regenerated on every load.
+**/.claude-plugin/types/

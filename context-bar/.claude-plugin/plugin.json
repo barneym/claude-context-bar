@@ -1,6 +1,6 @@
 {
   "name": "context-bar",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A live breakdown of the context window, right above the prompt.",
   "author": {
     "name": "Barney Mattox",
@@ -8,5 +8,6 @@
   },
   "homepage": "https://github.com/barneym/claude-context-bar",
   "repository": "https://github.com/barneym/claude-context-bar",
-  "license": "MIT"
+  "license": "MIT",
+  "types": "./types/index.d.ts"
 }

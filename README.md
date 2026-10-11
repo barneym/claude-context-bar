@@ -37,14 +37,16 @@ Not yet published. Install steps will appear here with the first tagged release.
 
 ## What it can reach
 
-This is planned and will be verified before the first release:
+Checked against `claude plugin validate`, which reads these lists off the source:
 
 | | |
 |---|---|
-| **Reads** | the session's token usage and its per-category breakdown, as the engine already holds them |
+| **Reads** | the session's token usage, with the local `summary` breakdown (category names, token counts and theme colors; it keeps nothing else from the reply), and one environment variable, `NO_COLOR` |
+| **Hooks** | `session.start` (registers the command, reads the flag), `session.measure` and `session.compact` (re-read usage after a turn or a compaction; both only observe), `command.run` for `/context-bar`, and `ui.render` for the `AbovePrompt` band |
+| **Calls** | `$.session.usage`, `$.command.register`, `$.store.get`/`set`, `$.env.get`, `$.ui.resolve`, and its own `$.state` values |
 | **Runs** | nothing |
-| **Sends** | nothing leaves the machine |
-| **Persists** | only whether the bar is shown or hidden |
+| **Sends** | nothing leaves the machine, and the `summary` breakdown sends no token-count requests |
+| **Persists** | one `$.store` key, `hidden`: whether the bar is shown |
 | **Hostile input** | it parses no prompt text, tool results or files |
 
 ## Commands
